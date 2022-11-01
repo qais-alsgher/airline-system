@@ -5,7 +5,6 @@ require(`./manager.js`);
 events.on(`new-flight`, newflight);
 events.on(`took-off`, tookoff);
 events.on(`arrived`, arrived);
-events.on(`thank-Message`, thankMessgae);
 var payloadData;
 
 function newflight(payload) {
@@ -27,7 +26,7 @@ function tookoff() {
     console.log(`flight with ID ${payloadData.flightID} took off`);
     console.log(`Flight {
         event: 'took-off',
-        time: ${new Date()},
+        time: ${new Date().toLocaleString()},
         Details: {
             airLine: ${payloadData.airLine},
             flightID: ${payloadData.flightID},
@@ -41,7 +40,7 @@ function arrived() {
     console.log(`flight with ID ${payloadData.flightID} has arrived`);
     console.log(`Flight {
         event: 'arrived',
-        time: ${new Date()},
+        time: ${new Date().toLocaleString()},
         Details: {
             airLine: ${payloadData.airLine},
             flightID: ${payloadData.flightID},
@@ -52,6 +51,4 @@ function arrived() {
 }
 
 
-function thankMessgae() {
-    console.log(`Manager: we're greatly thankful for the amazing flight, ${payloadData.pilot}`);
-}
+
