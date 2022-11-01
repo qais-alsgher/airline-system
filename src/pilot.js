@@ -1,13 +1,17 @@
 `use strict`;
-const events = require(`../event.js`);
-require(`./system.js`);
-require(`./manager.js`);
+require('dotenv').config();
+const socket = require('socket.io-client')(process.env.HOST || 'http://localhost:3001');
 
-events.on(`new-flight`, () => {
+
+socket.on(`start-flight`, (payload) => {
     setTimeout(() => {
-        events.emit(`took-off`);
+        socket.emit(`took-off`, payload);
         setTimeout(() => {
-            events.emit(`arrived`);
+            socket.emit(`arrived`, payload);
         }, 3000);
     }, 4000);
+});
+
+socket.on(`pilot-message`, (payload) => {
+    console.log(payload);
 });

@@ -18,6 +18,12 @@
   },
   "homepage": "https://github.com/qais-alsgher/airline-system#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "socket.io": "^4.5.3",
+    "socket.io-client": "^4.5.3",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }
