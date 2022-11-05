@@ -11,6 +11,8 @@ setInterval(() => {
 }, 10000);
 
 events.on(`arrived`, () => {
-    console.log(`Manager: we're greatly thankful for the amazing flight,${pilot}`);
+    setTimeout(() => {
+        console.log(`Manager: we're greatly thankful for the amazing flight,${pilot}`);
+    }, 1000);
 
 });
